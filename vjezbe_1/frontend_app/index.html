@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konoba RS – jelovnik</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Konoba RS</h1>
+    <p class="podnaslov">Jelovnik dohvaćen HTTP zahtjevom <code>GET /jelovnik.json</code></p>
+  </header>
+
+  <main>
+    <nav id="filteri" aria-label="Kategorije"></nav>
+    <p id="status">Učitavanje jelovnika…</p>
+    <section id="jelovnik"></section>
+  </main>
+
+  <footer>
+    <p>Raspodijeljeni sustavi · Vježba 1 · Davor Škiljić</p>
+    <p id="http-info"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
