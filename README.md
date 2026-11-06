@@ -1,1 +1,1 @@
-# rs_vjezbe
+# Raspodijeljeni sustavi - vježbe
