@@ -5,16 +5,16 @@ Jednostavna statična HTML/CSS/JS stranica (jelovnik restorana). Klijent (pregle
 
 ## Javni URL
 
-**https://TVOJ-NAZIV.onrender.com/**  <!-- zamijeniti nakon deploymenta -->
+**https://rs-vjezbe-davor.onrender.com/**
 
 ## Datoteke
 
-| Datoteka | Opis |
-|---|---|
-| `index.html` | ulazna stranica |
-| `style.css` | stilovi |
-| `app.js` | dohvat jelovnika (`fetch`) i prikaz |
-| `jelovnik.json` | podaci koje poslužitelj vraća |
+| Datoteka        | Opis                                |
+| --------------- | ----------------------------------- |
+| `index.html`    | ulazna stranica                     |
+| `style.css`     | stilovi                             |
+| `app.js`        | dohvat jelovnika (`fetch`) i prikaz |
+| `jelovnik.json` | podaci koje poslužitelj vraća       |
 
 ## Lokalno pokretanje
 
@@ -29,10 +29,10 @@ Zatim otvoriti http://localhost:8000
 
 ## Deployment (Render – Static Site)
 
-| Postavka | Vrijednost |
-|---|---|
-| Repository | `davor-sk/RS_vjezbe` |
-| Branch | `main` |
-| Root Directory | `vjezbe_1/frontend_app` |
-| Build Command | *(prazno)* |
-| Publish Directory | `.` |
+| Postavka          | Vrijednost              |
+| ----------------- | ----------------------- |
+| Repository        | `davor-sk/RS_vjezbe`    |
+| Branch            | `main`                  |
+| Root Directory    | `vjezbe_1/frontend_app` |
+| Build Command     | _(prazno)_              |
+| Publish Directory | `.`                     |
