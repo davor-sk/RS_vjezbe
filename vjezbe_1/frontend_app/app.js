@@ -22,7 +22,7 @@ async function ucitajNarudzbe() {
   lista.innerHTML = "";
 
   for (const n of narudzbe) {
-    lista.innerHTML += `<li>#${n.id} – ${n.ime}: jelo ${n.jelo_id}, količina ${n.kolicina}</li>`;
+    lista.innerHTML += `<li>#${n.id} – ${n.ime}: ${n.naziv_jela} × ${n.kolicina}</li>`;
   }
 }
 

@@ -68,10 +68,19 @@ def dodaj_narudzbu(podaci: dict):
     except ValueError as greska:
         raise HTTPException(status_code=422, detail=str(greska))
 
+    odabrano_jelo = None
+    for jelo in jelovnik:
+        if jelo["id"] == narudzba.jelo_id:
+            odabrano_jelo = jelo
+
+    if odabrano_jelo is None:
+        raise HTTPException(status_code=404, detail="Jelo ne postoji")
+    
     nova = {
         "id": len(narudzbe) + 1,
         "ime": narudzba.ime,
         "jelo_id": narudzba.jelo_id,
+        "naziv_jela": odabrano_jelo["naziv"],
         "kolicina": narudzba.kolicina,
     }
     narudzbe.append(nova)
