@@ -1,69 +1,54 @@
-// Klijent šalje HTTP zahtjev poslužitelju (Render) i prikazuje primljeni JSON.
-const statusEl = document.getElementById("status");
-const jelovnikEl = document.getElementById("jelovnik");
-const filteriEl = document.getElementById("filteri");
-const httpInfoEl = document.getElementById("http-info");
+const API_URL = "https://rs-vjezbe-davor-api.onrender.com";
 
-let jelovnik = [];
+async function ucitajJelovnik() {
+  const odgovor = await fetch(API_URL + "/jelovnik");
+  const jelovnik = await odgovor.json();
 
-async function dohvatiJelovnik() {
-  try {
-    const odgovor = await fetch("jelovnik.json");
-    httpInfoEl.textContent = `Odgovor poslužitelja: ${odgovor.status} ${odgovor.statusText || ""} · ${odgovor.headers.get("content-type") ?? ""}`;
+  const lista = document.getElementById("jelovnik");
+  const izbornik = document.getElementById("jelo");
+  lista.innerHTML = "";
 
-    if (!odgovor.ok) {
-      throw new Error(`HTTP ${odgovor.status}`);
-    }
-
-    jelovnik = await odgovor.json();
-    statusEl.hidden = true;
-    prikaziFiltere();
-    prikaziJelovnik("Sve");
-  } catch (greska) {
-    statusEl.textContent = `Jelovnik nije moguće učitati (${greska.message}).`;
-    statusEl.classList.add("greska");
+  for (const jelo of jelovnik) {
+    lista.innerHTML += `<li>${jelo.naziv} – ${jelo.cijena} €</li>`;
+    izbornik.innerHTML += `<option value="${jelo.id}">${jelo.naziv}</option>`;
   }
 }
 
-function prikaziFiltere() {
-  const kategorije = ["Sve", ...new Set(jelovnik.map((jelo) => jelo.kategorija))];
-  filteriEl.innerHTML = "";
-  for (const kategorija of kategorije) {
-    const gumb = document.createElement("button");
-    gumb.textContent = kategorija;
-    gumb.setAttribute("aria-pressed", kategorija === "Sve");
-    gumb.addEventListener("click", () => {
-      filteriEl.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", b === gumb));
-      prikaziJelovnik(kategorija);
-    });
-    filteriEl.appendChild(gumb);
+async function ucitajNarudzbe() {
+  const odgovor = await fetch(API_URL + "/narudzbe");
+  const narudzbe = await odgovor.json();
+
+  const lista = document.getElementById("narudzbe");
+  lista.innerHTML = "";
+
+  for (const n of narudzbe) {
+    lista.innerHTML += `<li>#${n.id} – ${n.ime}: jelo ${n.jelo_id}, količina ${n.kolicina}</li>`;
   }
 }
 
-function prikaziJelovnik(odabrana) {
-  const jela = odabrana === "Sve" ? jelovnik : jelovnik.filter((j) => j.kategorija === odabrana);
-  const poKategoriji = Map.groupBy
-    ? Map.groupBy(jela, (j) => j.kategorija)
-    : jela.reduce((m, j) => m.set(j.kategorija, [...(m.get(j.kategorija) ?? []), j]), new Map());
+document.getElementById("forma").addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-  jelovnikEl.innerHTML = "";
-  for (const [kategorija, stavke] of poKategoriji) {
-    const sekcija = document.createElement("div");
-    sekcija.className = "kategorija";
-    sekcija.innerHTML = `<h2>${kategorija}</h2>`;
-    for (const jelo of stavke) {
-      const red = document.createElement("article");
-      red.className = "jelo";
-      red.innerHTML = `
-        <div>
-          <h3>${jelo.naziv}</h3>
-          <p>${jelo.opis}</p>
-        </div>
-        <span class="cijena">${jelo.cijena.toFixed(2).replace(".", ",")} €</span>`;
-      sekcija.appendChild(red);
-    }
-    jelovnikEl.appendChild(sekcija);
+  const narudzba = {
+    ime: document.getElementById("ime").value,
+    jelo_id: Number(document.getElementById("jelo").value),
+    kolicina: Number(document.getElementById("kolicina").value),
+  };
+
+  const odgovor = await fetch(API_URL + "/narudzbe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(narudzba),
+  });
+
+  const poruka = document.getElementById("poruka");
+  if (odgovor.status === 201) {
+    poruka.textContent = "Narudžba je poslana!";
+    ucitajNarudzbe();
+  } else {
+    poruka.textContent = "Greška: " + odgovor.status;
   }
-}
+});
 
-dohvatiJelovnik();
+ucitajJelovnik();
+ucitajNarudzbe();

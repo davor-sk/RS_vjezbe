@@ -1,91 +1,26 @@
-:root {
-  --pozadina: #f7f3ee;
-  --kartica: #ffffff;
-  --tekst: #2b2620;
-  --prigusen: #7a6f63;
-  --akcent: #b5502d;
-  --rub: #e6ddd2;
-}
-
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: var(--pozadina);
-  color: var(--tekst);
-  line-height: 1.5;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  background: #f7f3ee;
+  color: #2b2620;
 }
 
-header, main, footer {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+h1 { color: #b5502d; }
+
+li { margin: 6px 0; }
+
+form { display: flex; gap: 8px; flex-wrap: wrap; }
+
+input, select, button {
+  padding: 8px;
+  font-size: 1rem;
 }
 
-header { padding-top: 3rem; padding-bottom: 1.5rem; }
-
-h1 { margin: 0; font-size: 2.4rem; letter-spacing: -0.02em; }
-
-.podnaslov { margin: 0.25rem 0 0; color: var(--prigusen); }
-
-code {
-  background: var(--rub);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
-#filteri { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-
-#filteri button {
-  border: 1px solid var(--rub);
-  background: var(--kartica);
-  color: var(--tekst);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  font: inherit;
+button {
+  background: #b5502d;
+  color: white;
+  border: none;
   cursor: pointer;
 }
-
-#filteri button[aria-pressed="true"] {
-  background: var(--akcent);
-  border-color: var(--akcent);
-  color: #fff;
-}
-
-#status { color: var(--prigusen); }
-#status.greska { color: var(--akcent); font-weight: 600; }
-
-.kategorija h2 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--akcent);
-  border-bottom: 1px solid var(--rub);
-  padding-bottom: 0.4rem;
-  margin: 2rem 0 0.5rem;
-}
-
-.jelo {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px dashed var(--rub);
-}
-
-.jelo h3 { margin: 0; font-size: 1rem; }
-.jelo p { margin: 0.15rem 0 0; color: var(--prigusen); font-size: 0.9rem; }
-.cijena { font-weight: 600; white-space: nowrap; }
-
-footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid var(--rub);
-  color: var(--prigusen);
-  font-size: 0.85rem;
-}
-
-footer p { margin: 0.2rem 0; }

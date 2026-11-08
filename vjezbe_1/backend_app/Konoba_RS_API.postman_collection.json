@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "Konoba RS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Početna",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://rs-vjezbe-davor-api.onrender.com/"
+      }
+    },
+    {
+      "name": "Jelovnik",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://rs-vjezbe-davor-api.onrender.com/jelovnik"
+      }
+    },
+    {
+      "name": "Jedno jelo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://rs-vjezbe-davor-api.onrender.com/jelovnik/2"
+      }
+    },
+    {
+      "name": "Nova narudžba",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "https://rs-vjezbe-davor-api.onrender.com/narudzbe",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ime\": \"Davor\",\n  \"jelo_id\": 2,\n  \"kolicina\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Sve narudžbe",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://rs-vjezbe-davor-api.onrender.com/narudzbe"
+      }
+    }
+  ]
+}

@@ -3,25 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Konoba RS – jelovnik</title>
+  <title>Konoba RS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Konoba RS</h1>
-    <p class="podnaslov">Jelovnik dohvaćen HTTP zahtjevom <code>GET /jelovnik.json</code></p>
-  </header>
+  <h1>Konoba RS</h1>
 
-  <main>
-    <nav id="filteri" aria-label="Kategorije"></nav>
-    <p id="status">Učitavanje jelovnika…</p>
-    <section id="jelovnik"></section>
-  </main>
+  <h2>Jelovnik</h2>
+  <ul id="jelovnik">
+    <li>Učitavanje...</li>
+  </ul>
 
-  <footer>
-    <p>Raspodijeljeni sustavi · Vježba 1 · Davor Škiljić</p>
-    <p id="http-info"></p>
-  </footer>
+  <h2>Nova narudžba</h2>
+  <form id="forma">
+    <input id="ime" placeholder="Vaše ime" required>
+    <select id="jelo"></select>
+    <input id="kolicina" type="number" value="1" min="1">
+    <button type="submit">Naruči</button>
+  </form>
+  <p id="poruka"></p>
+
+  <h2>Narudžbe</h2>
+  <ul id="narudzbe"></ul>
 
   <script src="app.js"></script>
 </body>

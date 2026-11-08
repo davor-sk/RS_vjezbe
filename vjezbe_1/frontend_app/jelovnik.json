@@ -1,9 +1,0 @@
-[
-  { "id": 1, "naziv": "Istarski pršut i sir", "opis": "Domaći pršut, ovčji sir, masline", "cijena": 12.5, "kategorija": "Predjela" },
-  { "id": 2, "naziv": "Riblja juha", "opis": "Juha od dnevnog ulova", "cijena": 6.0, "kategorija": "Predjela" },
-  { "id": 3, "naziv": "Fuži s tartufima", "opis": "Ručno rađeni fuži, crni istarski tartuf", "cijena": 18.0, "kategorija": "Glavna jela" },
-  { "id": 4, "naziv": "Pljukanci s kozicama", "opis": "Pljukanci, kozice, cherry rajčica, bijelo vino", "cijena": 16.5, "kategorija": "Glavna jela" },
-  { "id": 5, "naziv": "Brodet s palentom", "opis": "Miješana riba, umak od rajčice, palenta", "cijena": 19.0, "kategorija": "Glavna jela" },
-  { "id": 6, "naziv": "Kroštule", "opis": "Tradicionalni istarski slatkiš", "cijena": 4.5, "kategorija": "Deserti" },
-  { "id": 7, "naziv": "Fritule", "opis": "S rakijom i limunovom koricom", "cijena": 5.0, "kategorija": "Deserti" }
-]

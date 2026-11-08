@@ -1,38 +1,19 @@
-# Zadatak 1 – Statična frontend aplikacija na Renderu
+# Frontend – statična stranica (Zadatak 1 i 2)
 
-Jednostavna statična HTML/CSS/JS stranica (jelovnik restorana). Klijent (preglednik) šalje HTTP zahtjev
-`GET /jelovnik.json`, poslužitelj vraća JSON, a `app.js` ga prikazuje.
+Obična HTML/CSS/JS stranica koja šalje HTTP zahtjeve backendu (`../backend_app`).
 
 ## Javni URL
 
-**https://rs-vjezbe-davor.onrender.com/**
+https://rs-vjezbe-davor.onrender.com/
 
-## Datoteke
+## HTTP zahtjevi prema backendu (`app.js`)
 
-| Datoteka        | Opis                                |
-| --------------- | ----------------------------------- |
-| `index.html`    | ulazna stranica                     |
-| `style.css`     | stilovi                             |
-| `app.js`        | dohvat jelovnika (`fetch`) i prikaz |
-| `jelovnik.json` | podaci koje poslužitelj vraća       |
+- `GET /jelovnik` – prikaz jelovnika
+- `GET /narudzbe` – prikaz narudžbi
+- `POST /narudzbe` – slanje nove narudžbe iz forme
 
-## Lokalno pokretanje
+## Render postavke (Static Site)
 
-`fetch` ne radi kad se `index.html` otvori direktno iz datoteke (`file://`), pa treba lokalni poslužitelj:
-
-```bash
-cd vjezbe_1/frontend_app
-python -m http.server 8000
-```
-
-Zatim otvoriti http://localhost:8000
-
-## Deployment (Render – Static Site)
-
-| Postavka          | Vrijednost              |
-| ----------------- | ----------------------- |
-| Repository        | `davor-sk/RS_vjezbe`    |
-| Branch            | `main`                  |
-| Root Directory    | `vjezbe_1/frontend_app` |
-| Build Command     | _(prazno)_              |
-| Publish Directory | `.`                     |
+- Root Directory: `vjezbe_1/frontend_app`
+- Build Command: *(prazno)*
+- Publish Directory: `.`
